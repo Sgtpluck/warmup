@@ -12,7 +12,7 @@ class Phrase
     break_word_string.each do |single_word|
       if @word_hash.include? single_word
         @word_hash[single_word]+=1
-      else  
+      else
         @word_hash[single_word] = 1
       end
     end
@@ -20,12 +20,13 @@ class Phrase
   end
 
   private
-  def remove_punc #making a new 
-    @no_punc = @word.gsub(/[?!.,:&@$%^&]/, " ")
+
+  def remove_punc # making a new variable to store the punctuationless phrase to keep the original variable intact
+    @no_punc = @word.gsub(/[?!.,:&@$%^&]/, ' ')
   end
 
-  def break_word_string #this turns the phrase without punctuation into an array of words
-    @no_punc.split(" ")
+  def break_word_string # this turns the phrase without punctuation into an array of words
+    @no_punc.split(' ')
   end
-{"the"=>2, "of"=> 1}
+
 end
