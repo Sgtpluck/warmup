@@ -20,11 +20,11 @@ class Phrase
   end
 
   def remove_punc
-    @word.gsub!(/[?!.,:&@$%^&]/, " ")
+    @no_punc = @word.gsub(/[?!.,:&@$%^&]/, " ")
   end
 
   def break_word_string #this turns the phrase into an array of words
-    @word.split(" ")
+    @no_punc = @word.split(" ")
   end
 
 
