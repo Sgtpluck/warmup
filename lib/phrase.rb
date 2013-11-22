@@ -19,13 +19,13 @@ class Phrase
     @word_hash
   end
 
-  def remove_punc
+  private
+  def remove_punc #making a new 
     @no_punc = @word.gsub(/[?!.,:&@$%^&]/, " ")
   end
 
-  def break_word_string #this turns the phrase into an array of words
-    @no_punc = @word.split(" ")
+  def break_word_string #this turns the phrase without punctuation into an array of words
+    @no_punc.split(" ")
   end
-
-
+{"the"=>2, "of"=> 1}
 end
