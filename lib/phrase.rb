@@ -3,7 +3,7 @@
 class Phrase
 
   def initialize(word)
-    @word = word
+    @word = word.downcase
   end
 
   def word_count
@@ -18,8 +18,8 @@ class Phrase
     @word_hash
   end
 
-  def break_word_string
-    @word.downcase.split(" ")
+  def break_word_string #this turns the phrase into an array of words
+    @word.split(" ")
   end
 
 
