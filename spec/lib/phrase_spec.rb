@@ -40,4 +40,32 @@ describe Phrase do
 
     expect(phrase.word_count).to eq counts
   end
+
+  it "should ignore punctuation in the phrase" do
+    phrase = Phrase.new("car : carpet as java : javascript!!&@$%^&")
+    counts = {"car" => 1, "carpet" => 1, "as" => 1, "java" => 1, "javascript" => 1}
+ 
+    expect(phrase.word_count).to eq counts
+  end
+ 
+  it "should handle phrases that don't have spaces" do
+    phrase = Phrase.new("one,two,three")
+    counts = {"one" => 1, "two" => 1, "three" => 1}
+ 
+    expect(phrase.word_count).to eq counts
+  end
+ 
+  it "should include numbers as words" do
+    phrase = Phrase.new("testing, 1, 2 testing")
+    counts = {"testing" => 2, "1" => 1, "2" => 1}
+ 
+    expect(phrase.word_count).to eq counts
+  end
+ 
+  it "should be able to count words with apostrophes" do
+    phrase = Phrase.new("First: don't laugh. Then: don't cry.")
+    counts = {"first" => 1, "don't" => 2, "laugh" => 1, "then" => 1, "cry" => 1}
+ 
+    expect(phrase.word_count).to eq counts
+  end
 end

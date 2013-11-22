@@ -8,6 +8,7 @@ class Phrase
 
   def word_count
     @word_hash = {}
+    remove_punc
     break_word_string.each do |single_word|
       if @word_hash.include? single_word
         @word_hash[single_word]+=1
@@ -16,6 +17,10 @@ class Phrase
       end
     end
     @word_hash
+  end
+
+  def remove_punc
+    @word.gsub!(/[?!.,:&@$%^&]/, " ")
   end
 
   def break_word_string #this turns the phrase into an array of words
